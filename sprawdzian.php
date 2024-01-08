@@ -1,4 +1,6 @@
 <?php 
+// przykąłdowe zadania na zaliczenie:
+
 // Napisz skrypt, który wykona połączenie z bazą danych XXX
 
 // Zapytania przykłady:
