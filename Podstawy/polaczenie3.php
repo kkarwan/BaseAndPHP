@@ -44,4 +44,3 @@ while($row = $result->fetch()) {
 }
 
 $con = null;
-?>

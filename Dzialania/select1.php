@@ -25,4 +25,3 @@
    }
    echo '</table>';
    mysqli_close($connect);
-?>

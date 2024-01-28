@@ -41,5 +41,3 @@ while($row = $result->fetch_assoc()) {
 }
 
 $con->close();
-
-?>
