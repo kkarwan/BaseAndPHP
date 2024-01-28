@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>INSERT INTO</title>
 </head>
+
 <body>
    <form action="" method="post">
       Nazwisko: <input type="text" name="nazwisko"><br>
@@ -15,7 +17,7 @@
       <input type="submit" name="submit" value="Dodaj ucznia">
    </form>
 
-<?php
+   <?php
 
    if (isset($_POST['submit'])) {
       $nazwisko = $_POST['nazwisko'];
@@ -23,14 +25,23 @@
       $klasa = $_POST['klasa'];
       $telefon = $_POST['telefon'];
       $email = $_POST['email'];
-   
-      $con = mysqli_connect("localhost","root","","baseandphp");
-      $query = "INSERT INTO uczniowie (nazwisko,imie,klasa_id,telefon_komorkowy,email) 
-               VALUES ('$nazwisko', '$imie', $klasa, '$telefon', '$email')";
-      $result = mysqli_query($con, $query);
-      mysqli_close($con);
-   }
 
-?>  
+      if (
+         !empty($nazwisko) &&
+         !empty($imie) &&
+         !empty($klasa) &&
+         !empty($telefon) &&
+         !empty($email)
+      ) {
+         $con = mysqli_connect("localhost", "root", "", "baseandphp");
+         $query = "INSERT INTO uczniowie (nazwisko,imie,klasa_id,telefon_komorkowy,email) 
+                     VALUES ('$nazwisko', '$imie', $klasa, '$telefon', '$email')";
+         $result = mysqli_query($con, $query);
+         mysqli_close($con);
+      } else {
+         echo '<p>Musisz uzupełnić wszystkie pola!</p>';
+      }
+   }
+   ?>
 </body>
 </html>
