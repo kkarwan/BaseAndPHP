@@ -42,6 +42,7 @@
          echo '<p>Musisz uzupełnić wszystkie pola!</p>';
       }
    }
+   // aktualizacja
    ?>
 </body>
 </html>
