@@ -30,7 +30,10 @@
          echo '<td>' . $row['klasa_id'] . '</td>';
          echo '<td>' . $row['telefon_komorkowy'] . '</td>';
          echo '<td>' . $row['email'] . '</td>';
-         echo '<td><a href="update_extend.php?iduser=' . $row['id'] . '">EDIT<a/></td>';
+         echo '<td>
+         <a href="update_extend.php?iduser=' . $row['id'] . '">EDIT<a/> 
+         <a href="update_extend.php?iddel=' . $row['id'] . '">USUŃ<a/>
+         </td>';
          echo '</tr>';
       }
       echo '</table>';
@@ -66,6 +69,14 @@
          $query = "UPDATE uczniowie SET nazwisko='$nazwisko', imie='$imie', klasa_id=$klasa_id, telefon_komorkowy='$telefon', email='$email' WHERE id=".$_GET['iduser'];
          $result = mysqli_query($con, $query);
          mysqli_close($con);
+         header('location:update_extend.php');
+      }
+      if (isset($_GET["iddel"])) {
+         $iducznia = $_GET["iddel"];
+         $connect = mysqli_connect('localhost','root','','baseandphp');
+         $query = "DELETE FROM uczniowie WHERE id=$iducznia";
+         $result = mysqli_query($connect,$query);
+         mysqli_close($connect);
          header('location:update_extend.php');
       }
       ?>
